@@ -12,7 +12,7 @@ export interface Book {
 
 function App() {
   const [books, setBooks] = useState<Book[]>([]);
-  const [fbooks, setFBooks] = useState<Book[]>([]);
+  const [staticBooks, setStaticBooks] = useState<Book[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [uri, setUri] = useState<string>(
     "https://www.anapioficeandfire.com/api/books"
@@ -46,7 +46,7 @@ function App() {
           return;
         }
         setBooks(data);
-        setFBooks(data);
+        setStaticBooks(data);
       })
       .catch((err) => console.log(err));
   }, [uri]);
@@ -58,7 +58,7 @@ function App() {
           books={books}
           page={pageNumber}
           changePage={changePage}
-          fbooks={fbooks}
+          staticBooks={staticBooks}
           setBooks={setBooks}
         />
       ) : (

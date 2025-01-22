@@ -1,10 +1,10 @@
 import { Book } from "../App";
 
-const Search = ({ fbooks, setBooks }: any) => {
+const Search = ({ staticBooks, setBooks }: any) => {
   const searchBook = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const value: string = e.target.value;
-    const filteredBooks = fbooks.filter(
+    const value = e.target.value;
+    const filteredBooks = staticBooks.filter(
       (book: Book) =>
         book.name.toLocaleLowerCase().includes(value) ||
         book.publisher.toLocaleLowerCase().includes(value) ||
